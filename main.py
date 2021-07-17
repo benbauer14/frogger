@@ -6,8 +6,8 @@ from scoreboard import Scoreboard
 
 frog = Player()
 scoreboard = Scoreboard()
-
-
+cars = []
+lanes = [-240, -180, - 120, -60, 0, 60, 120, 180, 240 ]
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
