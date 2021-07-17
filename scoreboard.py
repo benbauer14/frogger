@@ -6,5 +6,7 @@ class Scoreboard(Turtle):
         super().__init__()
         self.color("black")
         self.penup()
+        self.hideturtle()
         self.goto(0, 280)
-        self.write("Scoreboard",False, align="center", ("Arial", 24, "normal"))
+        self.speed(0)
+        self.write("Scoreboard", move=False, align="center", font=("Arial", 20, "normal"))
