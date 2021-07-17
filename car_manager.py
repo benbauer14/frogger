@@ -2,7 +2,7 @@ COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
-from turtle import Turtle, setheading
+from turtle import Turtle, color, setheading
 import random
 
 cars = []
@@ -25,8 +25,9 @@ class CarManager(Turtle):
         new_car.penup()
         new_car.shape("square")
         new_car.shapesize(stretch_wid=3)
-        new_car.lane(lanes(random.randint(0,8))
-        if(new_car.lane() % 120 = 0 ):
+        new_car.lane(lanes(random.randint(0,8)))
+        new_car.color(random.randint(0, 5))
+        if(new_car.lane() % 120 == 0 ):
             new_car.setheading(180)
         else:
             new_car.setheading(0)
