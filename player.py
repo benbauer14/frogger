@@ -8,12 +8,15 @@ class Player(Turtle):
         super().__init__()
         self.shape("turtle")
         self.color("green")
+        self.penup()
 
     def moveLeft(self):
-        self.goto(self.xcor() + 20)
+        if(self.xcor() > -275):
+            self.goto(self.xcor() - 20, self.ycor())
 
     def moveRight(self):
-        self.goto(self.xcor() - 20)
+        if(self.xcor() < 255):
+            self.goto(self.xcor() + 20, self.ycor())
     
     def moveForward(self):
-        self.goto(self.ycor() + 20)
+        self.goto(self.xcor(), self.ycor() + 20)

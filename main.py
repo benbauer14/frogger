@@ -15,6 +15,7 @@ screen.listen()
 screen.onkey(frog.moveForward, "Up")
 screen.onkey(frog.moveLeft, "Left")
 screen.onkey(frog.moveRight, "Right")
+frog.goto(0, -275)
 
 game_is_on = True
 while game_is_on:
