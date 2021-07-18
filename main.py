@@ -15,17 +15,21 @@ screen.listen()
 screen.onkey(frog.moveForward, "Up")
 screen.onkey(frog.moveLeft, "Left")
 screen.onkey(frog.moveRight, "Right")
-frog.goto(0, -275)
+frog.goto(0, -265)
 
 game_is_on = True
 delay = 0
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-    if(delay > 9):
-        cars.createCar()
-        cars.move()
-        delay = 0
-    delay += 1
+    cars.createCar()
+    cars.move()
+    for car in cars.cars:
+        if(frog.distance(car) < 10):
+            game_is_on = False
+            scoreboard.clear()
+            scoreboard.write("SMASH!", move=False, align="center", font=("Arial", 20, "normal"))
+    if(frog.ycor() > 250):
+            scoreboard.write("WINNER!", move=False, align="center", font=("Arial", 20, "normal"))
 
 screen.exitonclick()

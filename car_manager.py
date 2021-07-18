@@ -14,13 +14,13 @@ class CarManager(Turtle):
 
     def move(self):
         for car in range(0,len(self.cars) - 1):
-            self.cars[car].forward(10)
+            self.cars[car].forward(30)
 
     def createCar(self):
         new_car = Turtle()
         new_car.penup()
         new_car.shape("square")
-        new_car.color("red")
+        new_car.color(COLORS[random.randint(0,5)])
         new_car.lane = self.lanes[random.randint(0,8)]
         if(new_car.lane % 120 == 0 ):
             new_car.setheading(180)
