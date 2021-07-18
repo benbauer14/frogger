@@ -6,8 +6,8 @@ from scoreboard import Scoreboard
 
 frog = Player()
 scoreboard = Scoreboard()
-cars = []
-lanes = [-240, -180, - 120, -60, 0, 60, 120, 180, 240 ]
+cars = CarManager()
+
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
@@ -18,8 +18,14 @@ screen.onkey(frog.moveRight, "Right")
 frog.goto(0, -275)
 
 game_is_on = True
+delay = 0
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    if(delay > 9):
+        cars.createCar()
+        cars.move()
+        delay = 0
+    delay += 1
 
 screen.exitonclick()

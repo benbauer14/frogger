@@ -5,29 +5,29 @@ MOVE_INCREMENT = 10
 from turtle import Turtle, color, setheading
 import random
 
-cars = []
-lanes = [-240, -180, - 120, -60, 0, 60, 120, 180, 240 ]
 
 class CarManager(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("square")
-        self.shapesize(stretch_wid=5)
+        self.cars = []
+        self.lanes = [-240, -180, - 120, -60, 0, 60, 120, 180, 240 ]
 
-    def move(self, speed, direction):
-        if(direction == "left"):
-            self.setheading(180)
-        elif(direction == "right"):
-            self.setheading(0)
+    def move(self):
+        for car in range(0,len(self.cars) - 1):
+            self.cars[car].forward(10)
 
-    def createCar():
+    def createCar(self):
         new_car = Turtle()
         new_car.penup()
         new_car.shape("square")
-        new_car.shapesize(stretch_wid=3)
-        new_car.lane(lanes(random.randint(0,8)))
-        new_car.color(random.randint(0, 5))
-        if(new_car.lane() % 120 == 0 ):
+        new_car.color("red")
+        new_car.lane = self.lanes[random.randint(0,8)]
+        if(new_car.lane % 120 == 0 ):
             new_car.setheading(180)
+            new_car.goto(300, new_car.lane)
         else:
             new_car.setheading(0)
+            new_car.goto(-300, new_car.lane)
+        new_car.velocity = random.randint(10,30)
+        self.cars.append(new_car)
+        
